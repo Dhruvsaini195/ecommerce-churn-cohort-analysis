@@ -31,7 +31,7 @@ GROUP BY customer_state
 ORDER BY customer_count DESC;
 
 -- 5. Payment type distribution
-select payment_type , count(*) as No_of_Orders
+select payment_type , count(*) as payment_count
 from order_payments
 GROUP BY payment_type;
 
@@ -60,7 +60,8 @@ select c.customer_state, round(avg(extract(day from o.order_delivered_customer_d
 from orders o
 JOIN customers c on o.customer_id=c.customer_id
 WHERE o.order_delivered_customer_date IS NOT NULL
-group by customer_state;
+group by customer_state
+order by avg_delivery_time DESC;
 
 
 -- 10. Monthly revenue trend
