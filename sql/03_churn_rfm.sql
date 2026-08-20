@@ -42,6 +42,7 @@ SELECT * FROM churn_flagged;
 
 Output:
 
+customer_unique_id                      last_order_date         max_date                days_since_last_order   churn_status
 "347dc668e37fdec762bbc337aff5bb12"	"2017-01-30 20:27:40"	"2018-10-17 17:30:18"	"624 days 21:02:38"	"Churned"
 "a46e277a383f4389ce5e0b642902c72c"	"2018-01-12 22:44:11"	"2018-10-17 17:30:18"	"277 days 18:46:07"	"Churned"
 "6ead799d8a12f9095ab29409be2aa075"	"2017-06-18 12:16:28"	"2018-10-17 17:30:18"	"486 days 05:13:50"	"Churned"
@@ -91,9 +92,9 @@ FROM churn_flagged
 GROUP BY churn_status;
 
 Output:
-
-"Churned"	86684	90.21
-"Active"	9412	9.79
+churn_status    customer_count percentage
+"Churned"	86684	       90.21
+"Active"	9412	       9.79
 
 Total rows: 2
 Query complete 00:00:00.202
@@ -135,16 +136,17 @@ ORDER BY rfm_score ASC;
 
 output:
 
-"0074a1d3f1995ff0538dc7197500973c"	1	1	1	3
-"baad97a77fafd04f72a7f874dd67b37e"	1	1	1	3
-"3184857361deb56be5aaa646f2737994"	1	1	1	3
-"297671736648f96db5d0fc8a2a1fb30d"	1	1	1	3
-"35694662ee96ef8cd104c2e9e9f2156c"	1	1	1	3
-"0ee8c10ba5bf1fd978741e98bd9449b9"	1	1	1	3
-"10ade705ca843fba444f2ef385bfa214"	1	1	1	3
-"32326030f94a88d5f606830e9f528349"	1	1	1	3
-"021ac5734c4f62601583998bf0de4e03"	1	1	1	3
-"860f75391be5698f015d3b234e7576d6"	1	1	1	3
+customer_unique_id                      recency_quartile       frequency_quartile      monetary_quartile   rfm_score
+"0074a1d3f1995ff0538dc7197500973c"	1	               1	               1	           3
+"baad97a77fafd04f72a7f874dd67b37e"	1	               1	               1	           3
+"3184857361deb56be5aaa646f2737994"	1	               1	               1	           3
+"297671736648f96db5d0fc8a2a1fb30d"	1	               1	               1	           3
+"35694662ee96ef8cd104c2e9e9f2156c"	1	               1	               1	           3
+"0ee8c10ba5bf1fd978741e98bd9449b9"	1	               1	               1	           3
+"10ade705ca843fba444f2ef385bfa214"	1	               1	               1	           3
+"32326030f94a88d5f606830e9f528349"	1	               1	               1	           3
+"021ac5734c4f62601583998bf0de4e03"	1	               1	               1	           3
+"860f75391be5698f015d3b234e7576d6"	1	               1	               1	           3
 
 Total rows: 96096
 Query complete 00:00:01.274
